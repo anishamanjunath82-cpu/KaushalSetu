@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kaushal Setu — Authentic Handmade Indian Crafts Direct from Artisans</title>
+  <meta name="description" content="Discover handmade Indian crafts directly from rural artisans. Interactive craft reveals, vernacular voice AI for sellers, and 100% fair artisan earnings.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="announcement-track">
+      <span>🌾 <strong>100% Direct Artisan Earnings</strong> — Zero Middlemen Markups</span>
+      <span class="sep">•</span>
+      <span>🧵 <strong>Interactive Craft Experience</strong> — See how each piece unrolls, unfolds & is shaped</span>
+      <span class="sep">•</span>
+      <span>🗣️ <strong>Vernacular Voice AI</strong> — Helping rural makers list in Kannada, Hindi, Tamil & Telugu</span>
+      <span class="sep">•</span>
+      <span>📦 <strong>Pan-India Demo Delivery</strong> — Free shipping on all craft orders this festive week</span>
+    </div>
+  </div>
+
+  <!-- Main Top Bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#" id="brandLogo" aria-label="Kaushal Setu Home">
+        <div class="brand-symbol">
+          <svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
+            <defs>
+              <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#2d6a4f"/>
+                <stop offset="100%" stop-color="#1b4332"/>
+              </linearGradient>
+            </defs>
+            <circle cx="20" cy="20" r="19" fill="url(#brandGrad)" stroke="#d4af37" stroke-width="1.5"/>
+            <!-- Stylized loom spindle & lotus motif -->
+            <path d="M20 7 L23 15 L31 15 L25 20 L27 28 L20 23 L13 28 L15 20 L9 15 L17 15 Z" fill="#e9d8a6" opacity="0.9"/>
+            <circle cx="20" cy="20" r="3.5" fill="#c85a32"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">KAUSHAL <span class="brand-accent">SETU</span></span>
+          <span class="brand-sub">CRAFTED BY LOCAL HANDS · INDIA</span>
+        </div>
+      </a>
+
+      <!-- Search Bar with Live Suggestions & Keyboard Shortcut -->
+      <div class="search-container">
+        <div class="search-box">
+          <span class="search-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </span>
+          <input id="search" type="search" placeholder="Search doormat, kurti, jute bag, terracotta, wall hanging…" aria-label="Search handmade products" autocomplete="off">
+          <button id="clearSearch" class="clear-search hidden" title="Clear search" aria-label="Clear search">×</button>
+          <button id="searchBtn" class="search-action-btn" aria-label="Submit search">
+            <span>Find Craft</span>
+          </button>
+        </div>
+        <!-- Quick search tags -->
+        <div class="quick-tags">
+          <span class="tag-label">Try:</span>
+          <button class="quick-tag" data-query="doormat">Doormat (Unroll anim)</button>
+          <button class="quick-tag" data-query="kurti">Kurti (Unfold anim)</button>
+          <button class="quick-tag" data-query="tote">Jute Bag</button>
+          <button class="quick-tag" data-query="terracotta">Terracotta</button>
+          <button class="quick-tag" data-query="hanging">Wall Hanging</button>
+        </div>
+      </div>
+
+      <!-- Navigation & Action Buttons -->
+      <nav class="top-nav" aria-label="Primary Navigation">
+        <button id="shopTab" class="nav-btn active" title="Browse handmade collection">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Shop</span>
+        </button>
+        <button id="ordersNavBtn" class="nav-btn" title="View demo order history">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span>My Orders</span>
+          <span id="orderHistoryBadge" class="nav-badge hidden">0</span>
+        </button>
+        <button id="authBtn" class="nav-btn auth-nav-btn" title="Sign In or Switch Account">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span id="authBtnLabel">Sign In</span>
+        </button>
+        <button id="cartBtn" class="cart-btn" aria-label="Open Shopping Bag">
+          <div class="cart-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span id="cartCount" class="cart-badge">0</span>
+          </div>
+          <span class="cart-label">Bag</span>
+        </button>
+        <button id="sellerTab" class="seller-nav-cta" title="Artisan Portal for Craft Sellers">
+          <span class="seller-pill-icon">✦</span>
+          <span>Seller Corner</span>
+          <span class="arrow-up">↗</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- User Banner when Logged In -->
+  <div id="userGreetingBar" class="user-greeting-bar hidden">
+    <div class="greeting-content">
+      <span class="greeting-avatar">🪷</span>
+      <span id="greetingText">Welcome, <strong>Anita Kumar</strong> (Buyer Account)</span>
+      <span class="session-pill">Demo Session Active</span>
+    </div>
+    <div class="greeting-actions">
+      <button id="switchRoleBtn" class="text-link-btn">Switch to Artisan Login</button>
+      <span class="sep">|</span>
+      <button id="logoutBtn" class="text-link-btn">Logout</button>
+    </div>
+  </div>
+
+  <!-- MAIN VIEWPORT -->
+  <main id="mainContent">
+
+    <!-- ==================== BUYER VIEW ==================== -->
+    <section id="shopView" class="view-section active">
+
+      <!-- Hero Banner -->
+      <section class="hero-section">
+        <div class="hero-card">
+          <div class="hero-copy">
+            <div class="hero-badge">
+              <span class="badge-dot"></span>
+              <span>DIRECT RURAL ARTISAN MARKETPLACE · BHARAT</span>
+            </div>
+            <h1 class="hero-title">
+              Every craft has<br>
+              <span class="hero-title-italic">a living story.</span>
+            </h1>
+            <p class="hero-lead">
+              Discover authentic handmade doormats, embroidered kurtis, natural jute bags, and terracotta arts straight from rural weaving clusters. Direct earnings to craftspeople, zero industrial imitation.
+            </p>
+            <div class="hero-actions">
+              <button class="btn-primary" id="exploreBtn">
+                <span>Explore Artisan Catalog</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              <button class="btn-secondary" id="heroSellerCta">
+                <span>Are you a Maker? Sell Here</span>
+                <span class="arrow-up">↗</span>
+              </button>
+            </div>
+            <div class="hero-metrics">
+              <div class="metric-item">
+                <span class="metric-val">100%</span>
+                <span class="metric-desc">Handmade Verified</span>
+              </div>
+              <div class="metric-divider"></div>
+              <div class="metric-item">
+                <span class="metric-val">88-92%</span>
+                <span class="metric-desc">Goes to Artisan</span>
+              </div>
+              <div class="metric-divider"></div>
+              <div class="metric-item">
+                <span class="metric-val">5 Regional</span>
+                <span class="metric-desc">Languages Supported</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Art Showcase (Interactive Teaser) -->
+          <div class="hero-art-showcase" id="heroInteractiveMat" title="Click to see doormat unroll demo!">
+            <div class="art-backdrop-glow"></div>
+            <div class="sun-disc"></div>
+            
+            <!-- Live CSS Animated Artisan Showcase Loom -->
+            <div class="hero-craft-stage">
+              <div class="hero-mat-visual">
+                <div class="woven-threads-pattern"></div>
+                <div class="hero-mat-overlay">
+                  <span class="mat-heritage-tag">HANDWOVEN CHINDI</span>
+                  <p class="mat-motto">“Woven slowly.<br>Cherished for years.”</p>
+                  <span class="mat-location">Lakshmi · Mandya, Karnataka</span>
+                </div>
+              </div>
+              <div class="hero-artisan-floating-card">
+                <div class="floating-avatar">🧶</div>
+                <div class="floating-text">
+                  <strong>Unrolling Animation</strong>
+                  <small>Click any product to experience!</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hackathon Value Proposition Strip -->
+      <section class="mission-strip" aria-label="Our Core Deliverables">
+        <div class="strip-header">
+          <span class="sub-eyebrow">HOW KAUSHAL SETU SOLVES THE ARTISAN CHALLENGE</span>
+          <h2>Empowering India's Heritage Makers</h2>
+        </div>
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <div class="pillar-icon-box">🌾</div>
+            <h3>1. Direct Digital Access</h3>
+            <p>Bypasses multi-tier wholesale traders so village weavers and potters retain 88–92% of retail value directly in their local bank accounts.</p>
+            <span class="pillar-tag">Financial Fair Share</span>
+          </div>
+          <div class="pillar-card highlight-pillar">
+            <div class="pillar-icon-box">🗣️</div>
+            <h3>2. Vernacular Voice AI</h3>
+            <p>Artisans with low literacy simply speak in Kannada, Hindi, Tamil, or Telugu. Our assistant creates titles, descriptions, and fair pricing automatically.</p>
+            <span class="pillar-tag">Inclusive Onboarding</span>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon-box">✨</div>
+            <h3>3. Tactile Animated Showcase</h3>
+            <p>Interactive unrolling doormats, unfolding kurtis, and rotating pottery bridge the sensory gap of online shopping and celebrate handcrafting time.</p>
+            <span class="pillar-tag">Story-First Commerce</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category Filter Pills Bar -->
+      <section class="category-filter-section" id="productsAnchor">
+        <div class="category-bar-wrapper">
+          <div class="category-bar" role="tablist" aria-label="Product categories">
+            <button class="cat-pill active" data-cat="All" role="tab" aria-selected="true">
+              <span class="pill-icon">✳</span>
+              <span class="pill-text">All Crafts</span>
+              <span class="pill-count" id="countAll">8</span>
+            </button>
+            <button class="cat-pill" data-cat="Home" role="tab" aria-selected="false">
+              <span class="pill-icon">🧶</span>
+              <span class="pill-text">Home & Living</span>
+              <span class="pill-count" id="countHome">3</span>
+            </button>
+            <button class="cat-pill" data-cat="Clothing" role="tab" aria-selected="false">
+              <span class="pill-icon">👗</span>
+              <span class="pill-text">Handloom Clothing</span>
+              <span class="pill-count" id="countClothing">2</span>
+            </button>
+            <button class="cat-pill" data-cat="Accessories" role="tab" aria-selected="false">
+              <span class="pill-icon">👜</span>
+              <span class="pill-text">Bags & Accessories</span>
+              <span class="pill-count" id="countAccessories">2</span>
+            </button>
+            <button class="cat-pill" data-cat="Art" role="tab" aria-selected="false">
+              <span class="pill-icon">🏺</span>
+              <span class="pill-text">Art & Terracotta</span>
+              <span class="pill-count" id="countArt">2</span>
+            </button>
+            <button class="cat-pill" data-cat="Wall Hanging" role="tab" aria-selected="false">
+              <span class="pill-icon">🪡</span>
+              <span class="pill-text">Wall Hangings</span>
+              <span class="pill-count" id="countHanging">1</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Grid Section -->
+      <section class="catalog-section">
+        <div class="catalog-header">
+          <div>
+            <span class="sub-eyebrow">THE CRAFTSPEOPLE'S BAZAAR</span>
+            <h2 class="section-title">Handcrafted with Patience</h2>
+          </div>
+          <div class="catalog-controls">
+            <span id="resultsCount" class="results-badge">8 products available</span>
+            <div class="sort-wrap">
+              <label for="sortBy" class="sr-only">Sort by:</label>
+              <select id="sortBy" class="sort-select" aria-label="Sort products">
+                <option value="featured">Featured First</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="name">Alphabetical</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div id="productGrid" class="product-grid" aria-live="polite">
+          <!-- Dynamically populated via app.js -->
+        </div>
+
+        <!-- Empty State (When no search matches) -->
+        <div id="emptyCatalog" class="empty-state-box hidden">
+          <div class="empty-icon">🔍</div>
+          <h3>No matching handmade items found</h3>
+          <p>Try searching for "doormat", "kurti", "jute", "coir", or reset your category filter.</p>
+          <button id="resetSearchBtn" class="btn-secondary">Show All Crafts</button>
+        </div>
+      </section>
+
+      <!-- Artisan Impact & Story Strip -->
+      <section class="heritage-story-strip">
+        <div class="heritage-content">
+          <div class="heritage-col">
+            <span class="sub-eyebrow">TRANSPARENT REVENUE MODEL</span>
+            <h2>Where does your money go?</h2>
+            <p>Unlike conventional online e-commerce platforms that siphon 35–50% in commissions, commissions at Kaushal Setu are capped at a nominal 8% to cover platform hosting. The remaining 92% is credited directly to the rural artisan's Jan Dhan account upon order dispatch.</p>
+            <div class="revenue-breakdown-bar">
+              <div class="breakdown-segment artisan" style="width: 88%;" title="88% Direct to Artisan">
+                <span>88% Artisan Net Take</span>
+              </div>
+              <div class="breakdown-segment packing" style="width: 4%;" title="4% Eco-Packaging"></div>
+              <div class="breakdown-segment tech" style="width: 8%;" title="8% Community Platform">
+                <span>8% Platform</span>
+              </div>
+            </div>
+          </div>
+          <div class="heritage-card">
+            <div class="artisan-quote-card">
+              <span class="quote-mark">“</span>
+              <p>“Before this platform, city traders bought my handwoven cotton doormats for ₹120 and sold them in Bangalore for ₹650. Now I list them myself for ₹450, earn ₹400 per piece, and have direct relationships with my patrons.”</p>
+              <div class="quote-author">
+                <div class="quote-avatar">🧶</div>
+                <div>
+                  <strong>Lakshmi Devi</strong>
+                  <small>Master Handloom Weaver · Mandya, Karnataka</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </section>
+    <!-- ==================== END BUYER VIEW ==================== -->
+
+
+    <!-- ==================== SELLER CORNER VIEW ==================== -->
+    <section id="sellerView" class="view-section seller-section hidden">
+      <div class="seller-dashboard-header">
+        <div class="seller-headline">
+          <div class="hero-badge seller-badge">
+            <span class="badge-dot orange-dot"></span>
+            <span>ARTISAN DIGITAL STUDIO · LOW-LITERACY FRIENDLY</span>
+          </div>
+          <h1>Your Craft. <span class="hero-title-italic">Your Fair Business.</span></h1>
+          <p class="seller-desc">A simple, friendly portal designed for rural makers. Speak in your native language, manage orders, and connect with conscious buyers across India.</p>
+        </div>
+        <div class="seller-profile-chip">
+          <div class="seller-avatar-large">👩‍🌾</div>
+          <div class="seller-info">
+            <strong id="sellerActiveName">Lakshmi Devi</strong>
+            <span class="artisan-badge">Verified Artisan · Mandya Weavers Guild</span>
+            <small class="account-type">Seller ID: KS-ART-5082</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Bar -->
+      <div class="seller-kpis">
+        <div class="kpi-card">
+          <span class="kpi-icon">📦</span>
+          <div>
+            <span class="kpi-num" id="kpiProductsCount">8</span>
+            <span class="kpi-label">Active Listings</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-icon">🛍️</span>
+          <div>
+            <span class="kpi-num" id="kpiOrdersCount">0</span>
+            <span class="kpi-label">Orders Received</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-icon">💰</span>
+          <div>
+            <span class="kpi-num" id="kpiEarnings">₹0</span>
+            <span class="kpi-label">Simulated Earnings</span>
+          </div>
+        </div>
+        <div class="kpi-card highlight-kpi">
+          <span class="kpi-icon">🎙️</span>
+          <div>
+            <span class="kpi-num">5</span>
+            <span class="kpi-label">Languages Ready</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seller Portal Navigation Tabs -->
+      <div class="seller-workspace">
+        <aside class="seller-sidebar" role="navigation" aria-label="Seller tools">
+          <button class="seller-nav-item active" data-panel="addPanel">
+            <span class="nav-icon">＋</span>
+            <div class="nav-texts">
+              <strong>Add a Product</strong>
+              <small>List a new handmade item</small>
+            </div>
+          </button>
+          <button class="seller-nav-item" data-panel="managePanel">
+            <span class="nav-icon">▤</span>
+            <div class="nav-texts">
+              <strong>My Products</strong>
+              <small>View & manage catalog</small>
+            </div>
+          </button>
+          <button class="seller-nav-item" data-panel="ordersPanel">
+            <span class="nav-icon">↗</span>
+            <div class="nav-texts">
+              <strong>Buyer Orders</strong>
+              <small>Fulfill incoming orders</small>
+            </div>
+            <span id="sellerOrderBadge" class="panel-badge hidden">0</span>
+          </button>
+          <button class="seller-nav-item ai-helper-item" data-panel="assistantPanel">
+            <span class="nav-icon">✧</span>
+            <div class="nav-texts">
+              <strong>Multilingual AI Helper</strong>
+              <small>Speak & create listings</small>
+            </div>
+            <span class="sparkle-badge">AI</span>
+          </button>
+        </aside>
+
+        <!-- Main Panel Content -->
+        <div class="seller-main-panel">
+
+          <!-- 1. ADD PRODUCT PANEL -->
+          <div id="addPanel" class="seller-tab-panel active">
+            <div class="panel-title-bar">
+              <div>
+                <h2>Add a Handmade Product</h2>
+                <p class="muted-text">Simple step-by-step form. All fields can be updated or filled automatically via the AI Helper.</p>
+              </div>
+              <button id="quickFillSampleBtn" class="btn-outline-small" title="Auto-populate with a sample doormat">
+                ⚡ Load Sample Doormat Data
+              </button>
+            </div>
+
+            <form id="productForm" class="artisan-form" novalidate>
+              <div class="form-row">
+                <div class="form-group flex-2">
+                  <label for="pName">
+                    <span>Product Name</span> <span class="req">*</span>
+                    <small>e.g. Handwoven Cotton Chindi Doormat</small>
+                  </label>
+                  <input id="pName" type="text" required placeholder="What is the name of your handmade piece?" maxlength="80">
+                  <span class="field-error" id="errName"></span>
+                </div>
+                <div class="form-group flex-1">
+                  <label for="pCategory">
+                    <span>Category</span> <span class="req">*</span>
+                  </label>
+                  <select id="pCategory" required>
+                    <option value="Home">Home & Living (Doormats, rugs)</option>
+                    <option value="Clothing">Clothing (Kurtis, dupattas)</option>
+                    <option value="Accessories">Accessories (Jute bags, jewellery)</option>
+                    <option value="Art">Art & Decor (Terracotta, pottery)</option>
+                    <option value="Wall Hanging">Wall Hanging (Macrame, art)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group flex-1">
+                  <label for="pPrice">
+                    <span>Fair Retail Price (₹)</span> <span class="req">*</span>
+                    <small>Artisan gets ~90%</small>
+                  </label>
+                  <div class="input-with-prefix">
+                    <span class="input-prefix">₹</span>
+                    <input id="pPrice" type="number" min="50" max="50000" step="10" required placeholder="450">
+                  </div>
+                  <span class="field-error" id="errPrice"></span>
+                </div>
+                <div class="form-group flex-1">
+                  <label for="pMaker">
+                    <span>Artisan Name & Region</span> <span class="req">*</span>
+                  </label>
+                  <input id="pMaker" type="text" required placeholder="e.g. Savita Devi · Dharwad">
+                  <span class="field-error" id="errMaker"></span>
+                </div>
+                <div class="form-group flex-1">
+                  <label for="pCraftType">
+                    <span>Craft Technique</span>
+                  </label>
+                  <input id="pCraftType" type="text" placeholder="e.g. Traditional Loom Weaving">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="pDescription">
+                  <span>Product Description</span> <span class="req">*</span>
+                  <small>Tell the buyer what makes this piece unique</small>
+                </label>
+                <textarea id="pDescription" rows="3" required placeholder="Describe dimensions, texture, colors and everyday usage..."></textarea>
+                <span class="field-error" id="errDescription"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="pStory">
+                  <span>The Maker's Story</span>
+                  <small>Who made this? What tradition or materials did you use?</small>
+                </label>
+                <textarea id="pStory" rows="3" placeholder="Share your personal journey or heritage technique behind this piece..."></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-primary" id="publishBtn">
+                  <span>Publish to Marketplace Catalog</span>
+                  <span>→</span>
+                </button>
+                <button type="reset" class="btn-secondary" id="resetFormBtn">Clear Form</button>
+              </div>
+              <div id="publishSuccessMsg" class="alert-success hidden" role="alert"></div>
+            </form>
+          </div>
+
+          <!-- 2. MY PRODUCTS PANEL -->
+          <div id="managePanel" class="seller-tab-panel hidden">
+            <div class="panel-title-bar">
+              <div>
+                <h2>My Active Listings</h2>
+                <p class="muted-text">Products published in your local artisan catalogue. Any buyer on Kaushal Setu can search and order these.</p>
+              </div>
+              <button class="btn-secondary btn-small" id="refreshCatalogBtn">↻ Refresh List</button>
+            </div>
+            <div id="sellerProductsList" class="seller-items-table">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- 3. ORDERS PANEL -->
+          <div id="ordersPanel" class="seller-tab-panel hidden">
+            <div class="panel-title-bar">
+              <div>
+                <h2>Incoming Buyer Orders</h2>
+                <p class="muted-text">Demo orders placed in this browser session. You can update dispatch and packing status here.</p>
+              </div>
+            </div>
+            <div id="sellerOrdersList" class="orders-list">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- 4. MULTILINGUAL AI HELPER PANEL -->
+          <div id="assistantPanel" class="seller-tab-panel hidden">
+            <div class="panel-title-bar">
+              <div>
+                <h2>Multilingual Voice & Craft AI Assistant</h2>
+                <p class="muted-text">Speak or type naturally in your own language. The assistant structures your words into a professional, high-converting product listing.</p>
+              </div>
+              <span class="ai-demo-tag">✦ Ready for Gemini 1.5 & Speech API</span>
+            </div>
+
+            <div class="assistant-card">
+              <!-- Language Selector Bar -->
+              <div class="language-selector-wrap">
+                <label for="assistantLang"><strong>Choose Your Native Language:</strong></label>
+                <div class="lang-pills" id="langPillGroup">
+                  <button type="button" class="lang-pill active" data-lang="Kannada">ಕನ್ನಡ (Kannada)</button>
+                  <button type="button" class="lang-pill" data-lang="Hindi">हिन्दी (Hindi)</button>
+                  <button type="button" class="lang-pill" data-lang="English">English</button>
+                  <button type="button" class="lang-pill" data-lang="Tamil">தமிழ் (Tamil)</button>
+                  <button type="button" class="lang-pill" data-lang="Telugu">తెలుగు (Telugu)</button>
+                </div>
+              </div>
+
+              <!-- Chat Output Stream -->
+              <div id="assistantChatStream" class="chat-viewport" aria-live="polite">
+                <div class="chat-bubble ai-bubble">
+                  <div class="ai-avatar">🪷</div>
+                  <div class="bubble-text" id="aiWelcomeMsg">
+                    <strong>ನಮಸ್ಕಾರ! (Namaskara!)</strong><br>
+                    ನೀವು ತಯಾರಿಸುವ ಕರಕುಶಲ ವಸ್ತುವಿನ ಬಗ್ಗೆ ಹೇಳಿ (ಉದಾಹರಣೆಗೆ: ಹತ್ತಿ ಡೋರ್‌ಮ್ಯಾಟ್, ಕುರ್ತಿ, ಜೂಟ್ ಬ್ಯಾಗ್). ನಾನು ನಿಮಗಾಗಿ ಮಾರಾಟದ ಪಟ್ಟಿಯನ್ನು ಸಿದ್ಧಪಡಿಸುತ್ತೇನೆ.<br>
+                    <small class="bubble-tip">💡 ಕೆಳಗಿನ ಮೈಕ್ರೋಫೋನ್ ಬಳಸಿ ಮಾತನಾಡಿ ಅಥವಾ ಟೈಪ್ ಮಾಡಿ.</small>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Voice & Text Input Box -->
+              <div class="assistant-input-tray">
+                <form id="assistantForm" class="assistant-input-form">
+                  <button type="button" id="voiceMicBtn" class="voice-mic-btn" title="Click to speak (Speech to Text)">
+                    <svg id="micIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                      <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                      <line x1="12" y1="19" x2="12" y2="23"/>
+                      <line x1="8" y1="23" x2="16" y2="23"/>
+                    </svg>
+                    <span id="micLabel" class="sr-only">Voice Input</span>
+                  </button>
+                  <input id="assistantInput" type="text" placeholder="e.g. ನಾನು ಮಂಡ್ಯದಲ್ಲಿ ಹತ್ತಿ ಸೀರೆಯಿಂದ ಡೋರ್‌ಮ್ಯಾಟ್ ನೇಯುತ್ತೇನೆ... (or type in English/Hindi)" required autocomplete="off">
+                  <button type="submit" class="btn-primary" id="sendAssistantBtn">
+                    <span>Generate Listing</span>
+                  </button>
+                </form>
+
+                <!-- Voice status indicator -->
+                <div id="voiceStatusMsg" class="voice-status-msg hidden">
+                  <span class="pulsing-mic-dot"></span>
+                  <span id="voiceStatusText">Listening... Please describe your product.</span>
+                </div>
+
+                <!-- Sample Prompts to Try -->
+                <div class="sample-prompts-tray">
+                  <span>Quick examples:</span>
+                  <button type="button" class="sample-prompt-chip" data-sample="I weave cotton doormats from discarded handloom sarees in Mandya. Very strong and colorful.">
+                    Cotton Doormat in Mandya
+                  </button>
+                  <button type="button" class="sample-prompt-chip" data-sample="Hand-embroidered pure Chanderi kurti with traditional Kasuti needlework from Dharwad.">
+                    Kasuti Embroidered Kurti
+                  </button>
+                  <button type="button" class="sample-prompt-chip" data-sample="Natural braided jute tote bag with cotton lining and wooden button made in Mysuru.">
+                    Handmade Jute Tote
+                  </button>
+                  <button type="button" class="sample-prompt-chip" data-sample="Terracotta water pot with natural cooling clay from the Kaveri river banks.">
+                    Terracotta Clay Decor
+                  </button>
+                </div>
+              </div>
+
+              <!-- AI Structured Output Box -->
+              <div id="aiSuggestionBox" class="ai-suggestion-box hidden">
+                <div class="suggestion-header">
+                  <div>
+                    <span class="suggestion-eyebrow">✦ STRUCTURED PRODUCT DRAFT</span>
+                    <h3 id="sugTitle">Handwoven Cotton Strip Doormat</h3>
+                  </div>
+                  <button id="transferToFormBtn" class="btn-primary btn-small">
+                    <span>✓ Transfer to Add Product Form</span>
+                  </button>
+                </div>
+
+                <div class="suggestion-body">
+                  <div class="sug-grid">
+                    <div>
+                      <small>Category</small>
+                      <strong id="sugCat">Home & Living</strong>
+                    </div>
+                    <div>
+                      <small>Suggested Fair Price</small>
+                      <strong id="sugPrice">₹450</strong>
+                    </div>
+                    <div>
+                      <small>Recommended Technique</small>
+                      <strong id="sugCraft">Chindi Hand-Weaving</strong>
+                    </div>
+                  </div>
+                  <div class="sug-text-block">
+                    <small>Generated Buyer Description</small>
+                    <p id="sugDesc"></p>
+                  </div>
+                  <div class="sug-text-block">
+                    <small>Authentic Artisan Story</small>
+                    <p id="sugStory"></p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- ==================== END SELLER VIEW ==================== -->
+
+  </main>
+
+  <!-- ==================== INTERACTIVE PRODUCT DETAIL MODAL (THE WOW FEATURE) ==================== -->
+  <div id="productModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-sheet">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close product details">×</button>
+
+      <div class="modal-columns">
+
+        <!-- Left Visual Stage: The Interactive Craft Animation -->
+        <div class="modal-visual-column">
+          <div class="stage-controls">
+            <div class="stage-tag" id="modalCategoryTag">HANDWOVEN · HOME</div>
+            <button id="replayAnimBtn" class="replay-btn" title="Replay the craft animation">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              <span>↻ Replay Reveal Animation</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Animation Canvas Container -->
+          <div class="animation-stage-box" id="animStageBox">
+            <!-- Will be dynamically populated with category specific animation -->
+          </div>
+
+          <!-- Animation Explanation Footer -->
+          <div class="stage-footer">
+            <span class="pulse-indicator"></span>
+            <span id="animStatusCaption">Interactive Craft Animation: Demonstrating textile weave & unrolling</span>
+          </div>
+        </div>
+
+        <!-- Right Detail Column -->
+        <div class="modal-info-column">
+          <div class="artisan-provenance-bar">
+            <div class="artisan-badge-icon">🌿</div>
+            <div>
+              <span class="maker-label">MAKER PROVENANCE</span>
+              <strong id="modalMaker" class="maker-name">Lakshmi · Mandya, Karnataka</strong>
+            </div>
+            <span class="verified-seal" title="Identity and craft verified by local guild">✓ Verified Artisan</span>
+          </div>
+
+          <h2 id="modalTitle" class="detail-title">Handwoven Cotton Doormat</h2>
+          
+          <div class="price-row">
+            <span id="modalPrice" class="detail-price">₹450</span>
+            <div class="price-split">
+              <span class="split-pill">₹396 goes directly to artisan</span>
+              <span class="tax-info">Inclusive of all local craft taxes</span>
+            </div>
+          </div>
+
+          <div class="detail-description-block">
+            <h4>About this Handmade Piece</h4>
+            <p id="modalDescription" class="detail-desc"></p>
+          </div>
+
+          <!-- The Artisan's Story Card -->
+          <div class="artisan-story-card">
+            <div class="story-header">
+              <span class="story-icon">✦</span>
+              <strong>The Artisan's Story & Technique</strong>
+            </div>
+            <p id="modalStory" class="story-body"></p>
+          </div>
+
+          <!-- Craft Specifications & Eco Tags -->
+          <div class="spec-tags-grid">
+            <div class="spec-tag">
+              <span class="spec-icon">🌱</span>
+              <span>100% Biodegradable & Upcycled Cotton</span>
+            </div>
+            <div class="spec-tag">
+              <span class="spec-icon">🖐️</span>
+              <span>Handmade on Traditional Pit Loom</span>
+            </div>
+            <div class="spec-tag">
+              <span class="spec-icon">🧺</span>
+              <span>Gentle Handwash / Sun Dry</span>
+            </div>
+          </div>
+
+          <!-- Purchase Controls -->
+          <div class="purchase-tray">
+            <div class="qty-selector">
+              <button class="qty-btn" id="modalQtyMinus" aria-label="Decrease quantity">−</button>
+              <span id="modalQtyVal" class="qty-val">1</span>
+              <button class="qty-btn" id="modalQtyPlus" aria-label="Increase quantity">+</button>
+            </div>
+            <button id="modalAddToCartBtn" class="btn-primary add-cart-btn">
+              <span>Add to Shopping Bag</span>
+              <span id="modalBtnPrice">₹450</span>
+            </button>
+          </div>
+
+          <p class="direct-support-notice">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Fair Price Guarantee: Zero middleman margin. Full refund if not completely satisfied.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SHOPPING CART DRAWER ==================== -->
+  <div id="cartDrawer" class="cart-drawer-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="cartDrawerTitle">
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <aside class="cart-drawer-panel">
+      <div class="drawer-header">
+        <div>
+          <span class="sub-eyebrow">YOUR HANDMADE SELECTION</span>
+          <h2 id="cartDrawerTitle">Artisan Shopping Bag</h2>
+        </div>
+        <button id="closeCartBtn" class="modal-close-btn" aria-label="Close cart drawer">×</button>
+      </div>
+
+      <!-- Cart Items List -->
+      <div id="cartItemsList" class="cart-items-container">
+        <!-- Dynamically rendered -->
+      </div>
+
+      <!-- Cart Summary & Demo Checkout -->
+      <div class="drawer-footer">
+        <div class="cost-breakdown">
+          <div class="cost-line">
+            <span>Items Subtotal</span>
+            <strong id="cartSubtotal">₹0</strong>
+          </div>
+          <div class="cost-line">
+            <span>Direct Artisan Share</span>
+            <span id="cartArtisanShare" class="text-green">₹0 (90%)</span>
+          </div>
+          <div class="cost-line">
+            <span>Standard Eco Delivery</span>
+            <span class="free-pill">FREE (Demo)</span>
+          </div>
+          <div class="cost-divider"></div>
+          <div class="cost-line total-line">
+            <span>Estimated Total</span>
+            <strong id="cartTotal" class="total-price">₹0</strong>
+          </div>
+        </div>
+
+        <div class="shipping-address-snippet">
+          <label for="shippingAddress"><strong>Delivery Address (Demo):</strong></label>
+          <input id="shippingAddress" type="text" value="Plot 42, Jayanagar 4th Block, Bengaluru, Karnataka 560041" placeholder="Enter delivery address">
+        </div>
+
+        <button id="checkoutBtn" class="btn-primary full-width-btn" disabled>
+          <span>Confirm & Place Demo Order</span>
+          <span>→</span>
+        </button>
+
+        <p class="cart-demo-disclaimer">
+          🔒 <strong>Simulated Demo Order:</strong> No real payment or credit card is processed. Placed orders are registered in your local session and visible in Seller Corner.
+        </p>
+
+        <div id="orderStatusAlert" class="alert-success hidden" role="alert"></div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ==================== BUYER ORDER HISTORY MODAL ==================== -->
+  <div id="ordersModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="ordersModalTitle">
+    <div class="modal-backdrop" id="ordersBackdrop"></div>
+    <div class="modal-card wide-card">
+      <button class="modal-close-btn" id="closeOrdersModalBtn" aria-label="Close order history">×</button>
+      <div class="modal-header">
+        <span class="sub-eyebrow">ORDER LOG & STATUS TRACKER</span>
+        <h2 id="ordersModalTitle">Your Placed Craft Orders</h2>
+        <p class="muted-text">Track your handmade demo orders. See which rural artisans are fulfilling your order.</p>
+      </div>
+      <div id="buyerOrdersList" class="orders-history-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== AUTHENTICATION & LOGIN MODAL ==================== -->
+  <div id="authModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+    <div class="modal-backdrop" id="authBackdrop"></div>
+    <div class="modal-card auth-modal-card">
+      <button class="modal-close-btn" id="closeAuthModalBtn" aria-label="Close authentication modal">×</button>
+
+      <!-- Auth Role Switcher -->
+      <div class="auth-role-tabs">
+        <button id="authTabBuyer" class="auth-role-tab active" data-role="buyer">
+          <span>🛍️ Buyer Account</span>
+        </button>
+        <button id="authTabSeller" class="auth-role-tab" data-role="seller">
+          <span>👩‍🌾 Artisan / Seller</span>
+        </button>
+      </div>
+
+      <div class="auth-content">
+        <div class="auth-header-text">
+          <h2 id="authModalTitle">Sign in to Kaushal Setu</h2>
+          <p id="authModalSub" class="muted-text">Access your craft bag, track orders, or manage your artisan listings.</p>
+        </div>
+
+        <!-- 1-Click Instant Demo Login for Hackathon Evaluation -->
+        <div class="quick-demo-login-box">
+          <span class="quick-box-label">⚡ 1-CLICK DEMO LOGIN (FOR EVALUATION):</span>
+          <div class="quick-btns-row">
+            <button id="quickBuyerLoginBtn" class="btn-outline-small">
+              👤 Login as Buyer (Anita)
+            </button>
+            <button id="quickArtisanLoginBtn" class="btn-outline-small">
+              🧶 Login as Artisan (Lakshmi)
+            </button>
+          </div>
+        </div>
+
+        <div class="or-separator">
+          <span>OR USE FORM</span>
+        </div>
+
+        <!-- Login Form -->
+        <form id="authForm" novalidate>
+          <div class="form-group">
+            <label for="authIdentifier">
+              <span>Mobile Number or Email</span> <span class="req">*</span>
+            </label>
+            <input id="authIdentifier" type="text" placeholder="9876543210 or artisan@kaushalsetu.org" required>
+            <span class="field-error" id="errAuthId"></span>
+          </div>
+
+          <div class="form-group">
+            <div class="label-with-action">
+              <label for="authPassword"><span>Password</span> <span class="req">*</span></label>
+              <button type="button" id="togglePasswordBtn" class="text-toggle-btn">Show</button>
+            </div>
+            <div class="password-input-wrap">
+              <input id="authPassword" type="password" placeholder="Enter secure password" required minlength="6">
+            </div>
+            <!-- Password Strength Bar -->
+            <div class="pwd-strength-container">
+              <div class="pwd-strength-bar">
+                <div id="pwdStrengthFill" class="pwd-strength-fill"></div>
+              </div>
+              <span id="pwdStrengthLabel" class="pwd-strength-text">Password strength: Empty</span>
+            </div>
+            <span class="field-error" id="errAuthPwd"></span>
+          </div>
+
+          <!-- Prototype OTP flow trigger -->
+          <div class="otp-request-row">
+            <button type="button" id="requestOtpBtn" class="text-link-btn">
+              📲 Or sign in with Demo SMS OTP
+            </button>
+          </div>
+
+          <!-- Demo OTP Box (Toggled on request) -->
+          <div id="demoOtpBox" class="demo-otp-section hidden">
+            <label for="otpInput"><span>Enter 4-Digit Demo OTP</span> (Sent to your mobile)</label>
+            <div class="otp-input-group">
+              <input id="otpInput" type="text" maxlength="4" placeholder="4289" class="otp-input">
+              <button type="button" id="verifyOtpBtn" class="btn-secondary btn-small">Verify OTP</button>
+            </div>
+            <small class="text-green">💡 Prototype Demo OTP is: <strong>4289</strong></small>
+          </div>
+
+          <button type="submit" class="btn-primary full-width-btn" id="submitAuthBtn">
+            <span id="submitAuthLabel">Sign In as Buyer</span>
+          </button>
+        </form>
+
+        <div class="auth-prototype-notice">
+          <small>
+            🛡️ <strong>Prototype Notice:</strong> Client-side demonstrator for hackathon evaluation. No plaintext passwords sent externally. Production architecture uses OAuth 2.0 / Firebase Auth with encrypted token storage.
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Toast Notification -->
+  <div id="toast" class="toast-notification hidden" role="status" aria-live="polite"></div>
+
+  <!-- Page Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-col">
+        <div class="brand">
+          <div class="brand-symbol">
+            <svg viewBox="0 0 40 40" width="32" height="32" aria-hidden="true">
+              <circle cx="20" cy="20" r="19" fill="#2d6a4f" stroke="#d4af37" stroke-width="1.5"/>
+              <circle cx="20" cy="20" r="4" fill="#c85a32"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">KAUSHAL <span class="brand-accent">SETU</span></span>
+            <span class="brand-sub">CRAFTED BY LOCAL HANDS</span>
+          </div>
+        </div>
+        <p class="footer-desc">
+          Building digital bridges between rural Indian artisans and conscious buyers worldwide. Keeping intangible cultural heritage alive through fair trade and accessible vernacular technology.
+        </p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Craft Heritage</h4>
+        <ul>
+          <li><a href="#" class="footer-cat-link" data-cat="Home">Handwoven Doormats & Mats</a></li>
+          <li><a href="#" class="footer-cat-link" data-cat="Clothing">Kasuti & Handloom Kurtis</a></li>
+          <li><a href="#" class="footer-cat-link" data-cat="Accessories">Jute & Lambani Bags</a></li>
+          <li><a href="#" class="footer-cat-link" data-cat="Art">Terracotta & Channapatna</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Artisan Empowerment</h4>
+        <ul>
+          <li><a href="#" id="footerSellerLink">Seller Corner (Artisan Portal)</a></li>
+          <li><a href="#" id="footerAiLink">Multilingual Voice AI Helper</a></li>
+          <li><a href="#" id="footerEthicsLink">Zero-Middleman Policy</a></li>
+          <li><a href="#" id="footerTrackLink">Track Demo Orders</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Regional Inclusivity</h4>
+        <div class="footer-lang-badges">
+          <span>ಕನ್ನಡ</span>
+          <span>हिन्दी</span>
+          <span>English</span>
+          <span>தமிழ்</span>
+          <span>తెలుగు</span>
+        </div>
+        <small class="footer-copyright">
+          © 2026 Kaushal Setu · Hackathon MVP Showcase.<br>
+          Made with ❤️ for Indian Artisans.
+        </small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
